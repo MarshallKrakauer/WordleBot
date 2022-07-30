@@ -94,9 +94,7 @@ def filter_df(word, result, dataframe):
 if __name__ == '__main__':
     df = copy.deepcopy(original_df)
 
-    # Word is Newer
-    df, orig = filter_df('crane', 'XYXYY', df)
-    df, orig = filter_df('inert', 'XYYYX', df)
-    df, orig = filter_df('owner', 'XYYGG', df)
-
-    print(df.sort_values('value', ascending=False))
+    df, orig = filter_df('crane', 'GXXYX', df)
+    df, orig = filter_df('conic', 'GXGYY', df)
+    print(len(df))
+    print(df.sort_values('value', ascending=False).head(10))
