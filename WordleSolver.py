@@ -1,10 +1,17 @@
 from WordList import FULL_LIST
 import pandas as pd
+import numpy as np
 from collections import defaultdict
 import copy
 
 original_df = pd.DataFrame(data={'word': FULL_LIST})
 ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+
+def calc_entropy(prob):
+    # not currently in use
+    part_1 = -1 * prob * np.log2(prob)
+    part_2 = (1-prob) * np.log2(1-prob)
+    return part_1 * part_2
 
 
 def count_letters(filtered_df):
@@ -15,10 +22,6 @@ def count_letters(filtered_df):
 
     for letter in ALPHABET:
         letter_dict[letter] = filtered_df['word'].apply(lambda x: int(letter in x)).sum()
-
-    # for item in filtered_df['word'].values:
-    #     for letter in item:
-    #         letter_dict[letter] += 1
 
     return letter_dict
 
