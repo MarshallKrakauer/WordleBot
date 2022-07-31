@@ -45,12 +45,12 @@ def play_wordle(df, solution, guess_num, guess, noisy=True):
     next_guess = df.loc[0, 'word']
 
     if noisy:
-        print( '~~~~~~~~~~~~~~~~~~~~',
+        print('~~~~~~~~~~~~~~~~~~~~',
               '\nsolution:', solution,
               '\nguess number:', guess_num,
               '\nguess:', guess,
               '\nresult:', result_li,
-              '\nnext_guess:', next_guess,)
+              '\nnext_guess:', next_guess, )
 
     if result_li != ['G', 'G', 'G', 'G', 'G']:
         return play_wordle(copy.deepcopy(df), solution, guess_num + 1, next_guess, noisy)
@@ -59,10 +59,12 @@ def play_wordle(df, solution, guess_num, guess, noisy=True):
             print('WINNER!!!!!!')
         return guess_num
 
+
 if __name__ == '__main__':
     sample_solution = random.choice(FULL_LIST)
     guess_num_li = []
     loser_li = []
+
     for idx, word in enumerate(FULL_LIST):
         if idx % 200 == 0 and idx > 0:
             print('current word:', word)
